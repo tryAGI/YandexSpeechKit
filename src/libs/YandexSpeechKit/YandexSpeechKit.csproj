@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <CLSCompliant>false</CLSCompliant>
+    <NoWarn>$(NoWarn);MEAI001;CS1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>Generated gRPC client and Microsoft.Extensions.AI speech-to-text adapter for Yandex SpeechKit.</Description>
+    <PackageTags>yandex;speechkit;speech-to-text;stt;transcription;grpc;protobuf;streaming;meai;dotnet</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.34.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.76.0" />
+    <PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.9.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.1" />
+    <PackageReference Include="Grpc.Tools" Version="2.78.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos/**/*.proto" ProtoRoot="Protos" GrpcServices="Client" />
+    <None Include="Protos/LICENSE" Pack="true" PackagePath="third-party/yandex-cloudapi/" />
+    <None Include="Protos/UPSTREAM_COMMIT" Pack="true" PackagePath="third-party/yandex-cloudapi/" />
+  </ItemGroup>
+
+</Project>
